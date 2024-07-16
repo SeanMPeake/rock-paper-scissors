@@ -1,5 +1,13 @@
 "use strict";
 
+const buttons = document.querySelectorAll("button");
+buttons.forEach((btn) =>  
+    btn.addEventListener("click", () => {
+    const humanChoice = btn.textContent;
+    console.log(humanChoice);
+}));
+
+
 function getComputerChoice () {
     let rand = Math.floor(Math.random() * 3);
     let computerChoice;
@@ -22,11 +30,11 @@ function getHumanChoice () {
     return humanChoice;
 }
 
+
+
 let computerScore = 0;
 let humanScore = 0;
 let tieScore = 0;
-
-function playGame () {
 
     function playRound (computerChoice, humanChoice) {
         if (computerChoice === humanChoice) {
@@ -53,13 +61,13 @@ function playGame () {
         }
     }
 
-    for (let i = 0; i < 5; i++) {
-        let computerChoice = getComputerChoice();
-        let humanChoice = getHumanChoice();
-        humanChoice = humanChoice.toLowerCase();
+    // for (let i = 0; i < 5; i++) {
+    //     let computerChoice = getComputerChoice();
+    //     let humanChoice = getHumanChoice();
+    //     humanChoice = humanChoice.toLowerCase();
 
-        playRound(computerChoice, humanChoice);
-    }
+    //     playRound(computerChoice, humanChoice);
+    // }
 
     if (computerScore === humanScore) {
         console.log('It\'s a tie!');
@@ -69,6 +77,4 @@ function playGame () {
         console.log('You lose the game!');
     }
 
-}
-
-playGame();
+// playGame();
